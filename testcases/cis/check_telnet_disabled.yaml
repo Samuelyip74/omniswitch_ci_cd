@@ -1,0 +1,15 @@
+id: TC-CIS-002
+name: Verify Telnet service is disabled
+description: Validate that insecure Telnet management is not enabled for production use.
+feature: system
+tags: [cis, smoke, system, security, management]
+severity: high
+setup: []
+validations:
+  - name: Telnet service is listed as disabled
+    type: regex
+    command: show ip service
+    pattern: '(?i)telnet\s+23\s+disabled'
+cleanup: []
+continue_on_failure: false
+timeout: 60

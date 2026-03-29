@@ -1,0 +1,19 @@
+id: TC-CIS-004
+name: Verify HTTPS enforcement for WebView
+description: Validate that WebView security settings are configured as expected.
+feature: system
+tags: [cis, smoke, system, security, management]
+severity: medium
+setup: []
+validations:
+  - name: HTTPS service is listed as enabled
+    type: regex
+    command: show ip service
+    pattern: '(?i)http\s+80\s+enabled'
+  - name: WebView Force-SSL is disabled
+    type: regex
+    command: show webview
+    pattern: '(?i)WebView Force-SSL\s*=\s*enabled'  
+cleanup: []
+continue_on_failure: false
+timeout: 60

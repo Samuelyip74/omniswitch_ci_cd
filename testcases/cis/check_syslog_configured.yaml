@@ -1,0 +1,23 @@
+id: TC-CIS-006
+name: Verify syslog is configured
+description: Validate that remote logging is configured so security and operational events are retained centrally.
+feature: system
+tags: [cis, smoke, system, security, monitoring]
+severity: high
+setup: []
+validations:
+  - name: Syslog process is running
+    type: regex
+    command: show swlog
+    pattern: '(?i)Operational Status\s*:\s*Running'
+  - name: Remote syslog destination is configured
+    type: regex
+    command: show swlog
+    pattern: '(?i)Log Device 2\s*:\s*ipaddr\s+\d{1,3}(?:\.\d{1,3}){3}:\d+'
+  - name: Syslog facility is defined
+    type: regex
+    command: show swlog
+    pattern: '(?i)Syslog FacilityID\s*:\s*\S+'
+cleanup: []
+continue_on_failure: false
+timeout: 60

@@ -1,0 +1,19 @@
+id: TC-CIS-008
+name: Verify SNMPv3 is configured
+description: Validate that secure SNMPv3 configuration is present for production monitoring.
+feature: system
+tags: [cis, smoke, system, security, monitoring]
+severity: high
+setup: []
+validations:
+  - name: SNMP security configuration returns content
+    type: regex
+    command: show snmp security
+    pattern: ".+"
+  - name: SNMPv3 is referenced
+    type: contains
+    command: show snmp security
+    expected: "v3"
+cleanup: []
+continue_on_failure: false
+timeout: 60

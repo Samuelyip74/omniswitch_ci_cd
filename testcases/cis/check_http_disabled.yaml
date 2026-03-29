@@ -1,0 +1,19 @@
+id: TC-CIS-003
+name: Verify HTTP service state
+description: Validate the HTTP service state from the IP services table.
+feature: system
+tags: [cis, smoke, system, security, management]
+severity: high
+setup: []
+validations:
+  - name: HTTP service is listed as enabled
+    type: regex
+    command: show ip service
+    pattern: '(?i)http\s+80\s+enabled'
+  - name: WebView Force-SSL is enabled
+    type: regex
+    command: show webview
+    pattern: '(?i)WebView Force-SSL\s*=\s*enabled'     
+cleanup: []
+continue_on_failure: false
+timeout: 60

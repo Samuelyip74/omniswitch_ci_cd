@@ -1,15 +1,15 @@
 id: TC-SYS-001
-name: Verify login prompt and version command
-description: Validate that the switch accepts a session and responds to a show command.
+name: Verify management session and show system response
+description: Validate that the switch accepts a session and returns key system information.
 feature: system
 tags: [smoke, system]
 severity: high
 setup: []
 validations:
-  - name: Show system returns content
-    type: regex
+  - name: Show system includes description
+    type: contains
     command: show system
-    pattern: ".+"
+    expected: "Description:"
 cleanup: []
 continue_on_failure: false
 timeout: 60

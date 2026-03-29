@@ -1,0 +1,15 @@
+id: TC-CIS-007
+name: Verify AAA is configured
+description: Validate that authentication settings are present for controlled administrative access.
+feature: system
+tags: [cis, smoke, system, security, aaa]
+severity: high
+setup: []
+validations:
+  - name: AAA authentication configuration returns content
+    type: regex
+    command: show aaa authentication
+    pattern: ".+"
+cleanup: []
+continue_on_failure: false
+timeout: 60

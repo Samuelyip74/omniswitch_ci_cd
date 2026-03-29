@@ -1,0 +1,15 @@
+id: TC-CIS-001
+name: Verify SSH service is enabled
+description: Validate that secure CLI management over SSH is available on the switch.
+feature: system
+tags: [cis, smoke, system, security, management]
+severity: high
+setup: []
+validations:
+  - name: SSH service is listed as enabled
+    type: regex
+    command: show ip service
+    pattern: '(?i)ssh\s+22\s+enabled'
+cleanup: []
+continue_on_failure: false
+timeout: 60
