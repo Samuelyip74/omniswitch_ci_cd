@@ -1,0 +1,3 @@
+report_dir: reports
+log_dir: logs
+default_baseline_strategy: load_config

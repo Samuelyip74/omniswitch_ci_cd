@@ -1,0 +1,28 @@
+id: TC-VLAN-001
+name: Create VLAN 100 and verify presence
+description: Verify that VLAN 100 can be created and appears in VLAN table.
+feature: vlan
+tags: [smoke, l2, vlan]
+severity: high
+preconditions:
+  - Switch is reachable via SSH
+  - Baseline configuration is loaded
+setup:
+  - action: cli
+    commands:
+      - vlan 100 name CI_TEST_VLAN100
+validations:
+  - name: VLAN 100 exists
+    type: contains
+    command: show vlan
+    expected: "100"
+  - name: VLAN 100 name is correct
+    type: contains
+    command: show vlan
+    expected: "CI_TEST_VLAN100"
+cleanup:
+  - action: cli
+    commands:
+      - no vlan 100
+continue_on_failure: false
+timeout: 120

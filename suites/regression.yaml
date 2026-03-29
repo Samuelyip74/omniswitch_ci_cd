@@ -1,0 +1,4 @@
+name: regression
+description: Expanded regression validation suite
+tests:
+  - ../testcases/system/login.yaml

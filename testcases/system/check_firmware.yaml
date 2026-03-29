@@ -1,0 +1,19 @@
+id: TC-SYS-002
+name: Verify device firmware
+description: Validate that the switch is the expected model and firmware release.
+feature: system
+tags: [smoke, system, firmware]
+severity: high
+
+setup: []
+
+validations:
+  - name: Firmware version matches expected release
+    type: contains
+    command: show system
+    expected: "8.9.221.R03 GA"
+
+cleanup: []
+
+continue_on_failure: false
+timeout: 60

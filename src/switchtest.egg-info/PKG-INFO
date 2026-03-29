@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: switchtest
+Version: 0.1.0
+Summary: Automated functional test system for network switches
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic<3,>=2.7
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: typer<1,>=0.12
+Requires-Dist: scrapli>=2024.1.30
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: pytest-cov>=5.0; extra == "dev"
+Requires-Dist: ruff>=0.5; extra == "dev"
+
+# switchtest
+
+`switchtest` is a Python CLI for running SSH-based functional tests against network switches using declarative YAML test definitions.
+
+## Quick start
+
+```powershell
+venv\Scripts\python.exe -m pip install -e .[dev]
+venv\Scripts\switchtest --help
+venv\Scripts\pytest
+```

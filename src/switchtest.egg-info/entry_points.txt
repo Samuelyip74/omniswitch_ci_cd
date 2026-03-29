@@ -1,0 +1,2 @@
+[console_scripts]
+switchtest = switchtest.cli:app

@@ -1,0 +1,7 @@
+name: smoke
+description: Basic smoke validation for firmware and config readiness
+tests:
+  - ../testcases/system/login.yaml
+  - ../testcases/system/check_firmware.yaml
+  - ../testcases/vlan/vlan_create.yaml
+

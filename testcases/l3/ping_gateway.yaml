@@ -1,0 +1,15 @@
+id: TC-L3-001
+name: Ping default gateway
+description: Verify that the automation host can reach the configured gateway address.
+feature: l3
+tags: [smoke, l3]
+severity: medium
+setup: []
+validations:
+  - name: Gateway responds to ping
+    type: ping
+    target: 127.0.0.1
+    timeout: 5
+cleanup: []
+continue_on_failure: false
+timeout: 30
